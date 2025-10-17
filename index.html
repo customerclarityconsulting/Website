@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Clarity Consulting | Unlock Customer Loyalty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-color: #f8f9fa;
+            background-image: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .service-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: #4f46e5;
+        }
+        /* Modal transition styles */
+        #contact-modal.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #modal-content {
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+        #contact-modal.hidden #modal-content {
+            transform: scale(0.95);
+            opacity: 0;
+        }
+        /* FAQ Accordion styles */
+        .faq-question {
+            cursor: pointer;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-700">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-gray-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-gray-800">
+                Customer Clarity Consulting
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#services" class="text-gray-600 hover:text-indigo-600">Services</a>
+                <a href="#advantage" class="text-gray-600 hover:text-indigo-600">Our Advantage</a>
+                <a href="#process" class="text-gray-600 hover:text-indigo-600">Process</a>
+                <a href="#about" class="text-gray-600 hover:text-indigo-600">About</a>
+                 <a href="#faq" class="text-gray-600 hover:text-indigo-600">FAQ</a>
+                <a href="#" class="schedule-call-btn bg-indigo-600 text-white px-5 py-2 rounded-lg font-medium cta-button">Book a Free Call</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg class="w-6 h-6 text-gray-800" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#services" class="block py-2 text-gray-600 hover:text-indigo-600">Services</a>
+            <a href="#advantage" class="block py-2 text-gray-600 hover:text-indigo-600">Our Advantage</a>
+            <a href="#process" class="block py-2 text-gray-600 hover:text-indigo-600">Process</a>
+            <a href="#about" class="block py-2 text-gray-600 hover:text-indigo-600">About</a>
+            <a href="#faq" class="block py-2 text-gray-600 hover:text-indigo-600">FAQ</a>
+            <a href="#" class="schedule-call-btn block mt-2 bg-indigo-600 text-white text-center px-5 py-2 rounded-lg font-medium cta-button">Book a Free Call</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">Unlock Customer Loyalty. <br class="hidden md:block"> Drive Revenue Growth.</h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">We use applied behavioral psychology to answer your most frustrating questions: "Why don't customers come back?" and "Why do they choose my competitor?"</p>
+                <div class="mt-10">
+                    <a href="#" class="schedule-call-btn bg-indigo-600 text-white px-8 py-4 rounded-lg font-semibold text-lg cta-button">Get Your Free CX Proposal</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The Customer Experience Audit</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">A comprehensive, data-backed roadmap to increasing customer loyalty and revenue.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Tier 1: Digital Audit -->
+                    <div class="service-card bg-gray-50 p-8 rounded-xl flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-800">Digital CX Audit</h3>
+                        <p class="text-4xl font-bold text-gray-900 mt-4">$795</p>
+                        <p class="text-gray-600 mt-2">A fully remote audit of your online customer journey.</p>
+                        <ul class="mt-6 space-y-4 text-gray-600 flex-grow">
+                            <li class="flex items-start"><span class="text-indigo-500 mr-3 mt-1">✓</span> <span>60-Min Business Context Interview</span></li>
+                            <li class="flex items-start"><span class="text-indigo-500 mr-3 mt-1">✓</span> <span>Digital Presence Audit (Website & Social)</span></li>
+                            <li class="flex items-start"><span class="text-indigo-500 mr-3 mt-1">✓</span> <span>Online Reputation Analysis (Google, Yelp)</span></li>
+                        </ul>
+                        <a href="#" class="schedule-call-btn mt-8 bg-white border border-indigo-600 text-indigo-600 text-center px-6 py-3 rounded-lg font-medium hover:bg-indigo-50">Get Started</a>
+                    </div>
+
+                    <!-- Tier 2: Standard Audit -->
+                    <div class="service-card bg-indigo-600 text-white p-8 rounded-xl flex flex-col relative overflow-hidden">
+                        <span class="absolute top-0 right-0 bg-indigo-800 text-white text-xs font-bold px-4 py-1 rounded-bl-lg">FLAGSHIP OFFERING</span>
+                        <h3 class="text-xl font-bold">Standard Customer Experience Audit</h3>
+                        <p class="text-4xl font-bold mt-4">$1,295</p>
+                        <p class="text-indigo-200 mt-2">The complete diagnostic for single-location businesses.</p>
+                        <ul class="mt-6 space-y-4 text-indigo-100 flex-grow">
+                            <li class="flex items-start"><span class="text-white mr-3 mt-1">✓</span> <span class="font-semibold">Everything in Digital Audit, plus:</span></li>
+                            <li class="flex items-start"><span class="text-white mr-3 mt-1">✓</span> <span>Psychologically-Designed Customer Survey</span></li>
+                            <li class="flex items-start"><span class="text-white mr-3 mt-1">✓</span> <span>In-Person Environmental Observation</span></li>
+                             <li class="flex items-start"><span class="text-white mr-3 mt-1">✓</span> <span>15-20 Page Diagnostic Report with Action Plan</span></li>
+                            <li class="flex items-start"><span class="text-white mr-3 mt-1">✓</span> <span>20-Min Explainer Video Walkthrough</span></li>
+                            <li class="flex items-start"><span class="text-white mr-3 mt-1">✓</span> <span>90-Min Live Strategy & Implementation Session</span></li>
+                        </ul>
+                        <a href="#" class="schedule-call-btn mt-8 bg-white text-indigo-600 text-center px-6 py-3 rounded-lg font-semibold hover:bg-indigo-100 cta-button">Book Now</a>
+                    </div>
+                    
+                    <!-- Tier 3: Multi-Location Audit -->
+                    <div class="service-card bg-gray-50 p-8 rounded-xl flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-800">Multi-Location Audit</h3>
+                        <p class="text-4xl font-bold text-gray-900 mt-4">$2,495+</p>
+                        <p class="text-gray-600 mt-2">For businesses with 2-5 locations.</p>
+                        <ul class="mt-6 space-y-4 text-gray-600 flex-grow">
+                             <li class="flex items-start"><span class="text-indigo-500 mr-3 mt-1">✓</span> <span class="font-semibold">Everything in Standard Audit, plus:</span></li>
+                            <li class="flex items-start"><span class="text-indigo-500 mr-3 mt-1">✓</span> <span>Separate analysis for each location</span></li>
+                            <li class="flex items-start"><span class="text-indigo-500 mr-3 mt-1">✓</span> <span>Identify experience inconsistencies</span></li>
+                            <li class="flex items-start"><span class="text-indigo-500 mr-3 mt-1">✓</span> <span>Comparative performance insights</span></li>
+                        </ul>
+                         <a href="#" class="schedule-call-btn mt-8 bg-white border border-indigo-600 text-indigo-600 text-center px-6 py-3 rounded-lg font-medium hover:bg-indigo-50">Request a Quote</a>
+                    </div>
+                </div>
+
+                <!-- Add-on Services -->
+                <div class="text-center mt-20 mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Add-On Services & Ongoing Support</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Enhance your audit with implementation support or maintain momentum with a monthly partnership.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="service-card bg-gray-50 p-8 rounded-xl flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-800">Implementation Coaching</h3>
+                        <p class="text-4xl font-bold text-gray-900 mt-4">$795</p>
+                        <p class="mt-2 text-gray-600 flex-grow">Provides accountability and expert guidance to ensure you execute the high-ROI fixes from your audit. Includes three 60-minute remote calls over 60 days.</p>
+                        <a href="#" class="schedule-call-btn mt-8 bg-white border border-indigo-600 text-indigo-600 text-center px-6 py-3 rounded-lg font-medium hover:bg-indigo-50">Add Coaching</a>
+                    </div>
+                    <div class="service-card bg-gray-50 p-8 rounded-xl flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-800">Staff Training Workshop</h3>
+                        <p class="text-4xl font-bold text-gray-900 mt-4">$495</p>
+                        <p class="mt-2 text-gray-600 flex-grow">A 90-minute live session teaching your team core psychological principles (like Decision Fatigue & Peak-End Rule) for better customer interactions.</p>
+                        <a href="#" class="schedule-call-btn mt-8 bg-white border border-indigo-600 text-indigo-600 text-center px-6 py-3 rounded-lg font-medium hover:bg-indigo-50">Book a Workshop</a>
+                    </div>
+                    <div class="service-card bg-gray-50 p-8 rounded-xl flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-800">Follow-Up Assessment</h3>
+                        <p class="text-4xl font-bold text-gray-900 mt-4">$395</p>
+                        <p class="mt-2 text-gray-600 flex-grow">Objectively prove your ROI by measuring customer experience improvements 90-120 days after implementation, perfect for generating data-backed testimonials.</p>
+                        <a href="#" class="schedule-call-btn mt-8 bg-white border border-indigo-600 text-indigo-600 text-center px-6 py-3 rounded-lg font-medium hover:bg-indigo-50">Measure Results</a>
+                    </div>
+                </div>
+
+                 <!-- Monthly Partnership -->
+                 <div class="grid md:grid-cols-2 gap-8 mt-8">
+                    <div class="service-card bg-indigo-50 p-8 rounded-xl flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-800">Essential Monthly Partnership</h3>
+                        <p class="text-4xl font-bold text-gray-900 mt-4">$295<span class="text-lg font-medium">/mo</span></p>
+                        <p class="mt-2 text-gray-600 flex-grow">Your ongoing CX "check engine light." Includes monthly feedback surveys & analysis, online reputation monitoring, and quarterly performance reviews.</p>
+                        <a href="#" class="schedule-call-btn mt-8 bg-white border border-indigo-600 text-indigo-600 text-center px-6 py-3 rounded-lg font-medium hover:bg-indigo-100">Become a Partner</a>
+                    </div>
+                    <div class="service-card bg-indigo-50 p-8 rounded-xl flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-800">Premium Monthly Partnership</h3>
+                        <p class="text-4xl font-bold text-gray-900 mt-4">$445<span class="text-lg font-medium">/mo</span></p>
+                        <p class="mt-2 text-gray-600 flex-grow">Proactive guidance. Includes everything in Essential plus a monthly 30-min strategy call, monthly staff micro-training video, and competitor intelligence.</p>
+                        <a href="#" class="schedule-call-btn mt-8 bg-white border border-indigo-600 text-indigo-600 text-center px-6 py-3 rounded-lg font-medium hover:bg-indigo-100">Go Premium</a>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Our Advantage Section -->
+        <section id="advantage" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The Customer Clarity Advantage</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">We don't just give you data. We translate hidden customer psychology into your next business strategy.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg text-indigo-600">What I Analyze</h3>
+                        <p class="mt-2 text-gray-600">Customer Memory Patterns, Decision Overwhelm, and the true "Job-to-be-Done."</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg text-indigo-600">What You Learn</h3>
+                        <p class="mt-2 text-gray-600">The exact moments customers remember most, where they get confused, and what they really want from you.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg text-indigo-600">What You Do</h3>
+                        <p class="mt-2 text-gray-600">Create "wow" moments, simplify choices, and align your service to what customers actually need.</p>
+                    </div>
+                </div>
+                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                    <div class="text-center">
+                        <h4 class="font-semibold text-xl text-gray-800">Niche Expertise</h4>
+                        <p class="text-gray-600 mt-2">Specialized in Wellness & Lifestyle Retail. I know your industry's unique challenges.</p>
+                    </div>
+                     <div class="text-center">
+                        <h4 class="font-semibold text-xl text-gray-800">Unique Methodology</h4>
+                        <p class="text-gray-600 mt-2">Systematic diagnostic based on Applied Behavioral Psychology, not just operational advice.</p>
+                    </div>
+                     <div class="text-center">
+                        <h4 class="font-semibold text-xl text-gray-800">Actionable Outcomes</h4>
+                        <p class="text-gray-600 mt-2">You get a prioritized action plan for customer retention, not just a report that sits on a shelf.</p>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-semibold text-xl text-gray-800">Rigorous Data Synthesis</h4>
+                        <p class="text-gray-600 mt-2">We use a 5-source method (Survey, Observation, Reviews, Interview, Data) for a complete, objective picture.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">A Proven Process for Actionable Insights</h2>
+                    <p class="mt-4 text-lg text-gray-600">We turn complex data into a clear, step-by-step plan for growth.</p>
+                </div>
+                <div class="relative">
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-300" style="transform: translateY(-50%)"></div>
+                    <div class="grid md:grid-cols-4 gap-8 relative">
+                        <div class="text-center p-6 bg-white rounded-lg shadow-md border-t-4 border-indigo-500">
+                            <div class="bg-indigo-100 text-indigo-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto text-xl font-bold">1</div>
+                            <h3 class="mt-4 text-xl font-semibold text-gray-800">Discovery & Goal Setting</h3>
+                            <p class="mt-2 text-gray-600">We start with a deep dive into your business, goals, and perceived challenges.</p>
+                        </div>
+                        <div class="text-center p-6 bg-white rounded-lg shadow-md border-t-4 border-indigo-500">
+                            <div class="bg-indigo-100 text-indigo-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto text-xl font-bold">2</div>
+                            <h3 class="mt-4 text-xl font-semibold text-gray-800">Multi-Source Data Collection</h3>
+                            <p class="mt-2 text-gray-600">We gather data from surveys, online reviews, and in-person observation.</p>
+                        </div>
+                        <div class="text-center p-6 bg-white rounded-lg shadow-md border-t-4 border-indigo-500">
+                            <div class="bg-indigo-100 text-indigo-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto text-xl font-bold">3</div>
+                            <h3 class="mt-4 text-xl font-semibold text-gray-800">Analysis & Synthesis</h3>
+                            <p class="mt-2 text-gray-600">This is our core IP. We connect the dots to reveal the 'why' behind customer behavior.</p>
+                        </div>
+                        <div class="text-center p-6 bg-white rounded-lg shadow-md border-t-4 border-indigo-500">
+                            <div class="bg-indigo-100 text-indigo-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto text-xl font-bold">4</div>
+                            <h3 class="mt-4 text-xl font-semibold text-gray-800">Deliverables & Action Plan</h3>
+                            <p class="mt-2 text-gray-600">You get a detailed report, video summary, and a live session to build your 90-day plan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/3">
+                        <img src="https://placehold.co/400x400/EFEFFF/4F46E5?text=WC" alt="Wesley Crow, Founder" class="rounded-full shadow-lg mx-auto">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Your Unfair Advantage: <br>Real-World Experience Meets Academic Rigor</h2>
+                        <p class="mt-6 text-lg text-gray-600">Hi, I'm Wesley Crow, founder of Customer Clarity Consulting. I'm not a typical consultant. My background isn't in boardrooms; it's on the retail floor of wellness shops, grocery stores, and service businesses—the same world you operate in.</p>
+                        <p class="mt-4 text-lg text-gray-600">I combine this hands-on experience with a deep understanding of behavioral psychology and sociology. This unique blend allows me to see your business from two critical perspectives: as a customer experiencing it, and as an analyst who understands the hidden psychological drivers behind their decisions. I started this consultancy to give small business owners the same level of customer insight that large corporations have, but in a way that's practical, affordable, and tailored to your specific needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">What Our Clients Are Saying</h2>
+                 </div>
+                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <p class="text-gray-600">"The audit uncovered insights we never would have seen on our own. We thought price was our main issue, but Wesley showed us that confusion in our service menu was the real friction point. We implemented the recommended changes and saw a 15% increase in repeat clients within 60 days."</p>
+                        <div class="mt-6 flex items-center">
+                            <img src="https://placehold.co/48x48/EFEFFF/4F46E5?text=JS" alt="Client" class="rounded-full">
+                            <div class="ml-4">
+                                <p class="font-semibold text-gray-800">Jennifer Smith</p>
+                                <p class="text-gray-500">Owner, Serenity Wellness Spa</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <p class="text-gray-600">"We were struggling with negative online reviews and couldn't figure out why. The in-person observation was eye-opening. Wesley's report gave us a clear, prioritized list of environmental and staff training fixes. Our Google rating has gone from 3.8 to 4.6 stars in just three months."</p>
+                        <div class="mt-6 flex items-center">
+                            <img src="https://placehold.co/48x48/EFEFFF/4F46E5?text=MB" alt="Client" class="rounded-full">
+                            <div class="ml-4">
+                                <p class="font-semibold text-gray-800">Michael Brown</p>
+                                <p class="text-gray-500">Manager, The Green Leaf CBD</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <p class="text-gray-600">"As a multi-location business, ensuring a consistent customer experience is our biggest challenge. The multi-location audit was invaluable. It pinpointed exactly where our processes were breaking down and gave us the framework to standardize our service delivery. This was the best investment we've made in our business this year."</p>
+                        <div class="mt-6 flex items-center">
+                            <img src="https://placehold.co/48x48/EFEFFF/4F46E5?text=CD" alt="Client" class="rounded-full">
+                            <div class="ml-4">
+                                <p class="font-semibold text-gray-800">Carlos Delgado</p>
+                                <p class="text-gray-500">Founder, Fresh & Fast Salads</p>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Frequently Asked Questions</h2>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="faq-question flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-gray-800">What if we don't get enough survey responses?</h3>
+                            <span class="text-indigo-500 transform transition-transform duration-300 faq-arrow">▼</span>
+                        </div>
+                        <div class="faq-answer pt-4 text-gray-600">
+                            <p>This is a common concern, which is why the audit is a multi-source analysis. If survey response rates are low, we simply increase the statistical weight of the other four data sources: the in-person observation, online review analysis, business context interview, and your internal data. This ensures the final diagnosis is always robust, comprehensive, and not dependent on any single point of failure.</p>
+                        </div>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="faq-question flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-gray-800">What kind of results can we realistically expect?</h3>
+                            <span class="text-indigo-500 transform transition-transform duration-300 faq-arrow">▼</span>
+                        </div>
+                        <div class="faq-answer pt-4 text-gray-600">
+                            <p>We promise diagnostic clarity and an actionable strategy, not a specific revenue guarantee. The value is in knowing exactly what to fix and why. However, our process is designed to identify the highest-impact, lowest-effort fixes. If you implement the top three prioritized actions from our report, you should expect to see measurable improvements in customer retention and feedback within 60-90 days.</p>
+                        </div>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="faq-question flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-gray-800">Is this a big financial risk for a small business?</h3>
+                            <span class="text-indigo-500 transform transition-transform duration-300 faq-arrow">▼</span>
+                        </div>
+                        <div class="faq-answer pt-4 text-gray-600">
+                            <p>We see this as an investment in keeping the customers you've already paid to acquire. The cost of losing just 2-3 loyal customers a month is often far greater than the entire one-time cost of the audit. Our goal is to give you a positive return on investment by plugging the leaks in your customer journey that are silently costing you thousands in repeat business every year.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="bg-indigo-700 rounded-lg p-8 md:p-16 text-center text-white">
+                    <h2 class="text-3xl md:text-4xl font-bold">Ready to Turn Customer Insights into Revenue?</h2>
+                    <p class="mt-4 text-lg text-indigo-200 max-w-2xl mx-auto">Let's talk. Schedule a free, no-obligation 15-minute discovery call to see if a CX Psychology Audit is the right fit for your business.</p>
+                    <div class="mt-8">
+                         <a href="#" class="schedule-call-btn bg-white text-indigo-600 px-8 py-4 rounded-lg font-semibold text-lg cta-button">Schedule Your Free Discovery Call</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-bold">Customer Clarity Consulting</h3>
+                    <p class="text-gray-400 mt-2">Helping wellness & retail businesses thrive.</p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <div class="flex space-x-6">
+                        <a href="#services" class="text-gray-400 hover:text-white">Services</a>
+                        <a href="#advantage" class="text-gray-400 hover:text-white">Advantage</a>
+                        <a href="#process" class="text-gray-400 hover:text-white">Process</a>
+                        <a href="#about" class="text-gray-400 hover:text-white">About</a>
+                        <a href="#faq" class="text-gray-400 hover:text-white">FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 Customer Clarity Consulting. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="contact-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 transition-opacity duration-300">
+        <div id="modal-content" class="bg-white rounded-lg p-8 shadow-xl w-full max-w-lg m-6 transform opacity-0 scale-95">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Schedule Your Free Call</h2>
+                <button id="close-modal-btn" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
+            </div>
+            
+            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                 <!-- IMPORTANT: Replace "YOUR_FORM_ID" with your actual Formspree form ID -->
+                <div class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                     <div>
+                        <label for="business" class="block text-sm font-medium text-gray-700">Business Name</label>
+                        <input type="text" name="business" id="business" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Tell us about your challenges</label>
+                        <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <button type="submit" class="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold text-lg cta-button">Submit Request</button>
+                </div>
+            </form>
+
+            <div id="success-message" class="hidden text-center py-10">
+                <h2 class="text-2xl font-bold text-gray-800">Thank You!</h2>
+                <p class="mt-2 text-gray-600">Your request has been sent. We'll be in touch within 24 hours.</p>
+                <button id="close-success-btn" class="mt-6 bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let i = 0; i < mobileMenuLinks.length; i++) {
+            mobileMenuLinks[i].addEventListener('click', () => {
+                if(!mobileMenuLinks[i].classList.contains('schedule-call-btn')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        }
+
+        // Contact Form Modal Logic
+        const contactModal = document.getElementById('contact-modal');
+        const modalContent = document.getElementById('modal-content');
+        const openModalButtons = document.querySelectorAll('.schedule-call-btn');
+        const closeModalButton = document.getElementById('close-modal-btn');
+        const closeSuccessButton = document.getElementById('close-success-btn');
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+
+        function openModal() {
+            contactModal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('opacity-0', 'scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            modalContent.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                contactModal.classList.add('hidden');
+                setTimeout(() => {
+                    contactForm.classList.remove('hidden');
+                    successMessage.classList.add('hidden');
+                    contactForm.reset();
+                }, 300);
+            }, 300);
+        }
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        });
+        
+        closeModalButton.addEventListener('click', closeModal);
+        closeSuccessButton.addEventListener('click', closeModal);
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                closeModal();
+            }
+        });
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+
+            fetch(this.action, {
+                method: this.method,
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    contactForm.classList.add('hidden');
+                    successMessage.classList.remove('hidden');
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                           console.error(data["errors"].map(error => error["message"]).join(", "));
+                           alert('An error occurred. Please check the console.');
+                        } else {
+                           console.error('Form submission error:', data);
+                           alert('Oops! There was a problem submitting your form.');
+                        }
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Network error:', error);
+                alert('Oops! There was a network error.');
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Request';
+            });
+        });
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const arrow = button.querySelector('.faq-arrow');
+                
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    arrow.style.transform = 'rotate(0deg)';
+                } else {
+                    document.querySelectorAll('.faq-answer').forEach(ans => ans.style.maxHeight = null);
+                    document.querySelectorAll('.faq-arrow').forEach(arr => arr.style.transform = 'rotate(0deg)');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    arrow.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
